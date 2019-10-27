@@ -11,14 +11,8 @@ buildscript {
     }
 }
 
-plugins {
-    id 'java'
-    //id 'io.quarkus'
-}
-
-//apply plugin: 'java'
+apply plugin: 'java'
 apply plugin: 'io.quarkus'
-//apply plugin: 'maven'
 
 group = 'org.acme'
 version = '1.0-SNAPSHOT'
@@ -39,7 +33,6 @@ dependencies {
 
 repositories {
     mavenCentral()        
-    //maven { url "http://repo.maven.apache.org/maven2" }
 }
 
 sourceCompatibility = 1.8
