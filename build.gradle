@@ -20,11 +20,14 @@ version = '1.0-SNAPSHOT'
 description = """"""
 
 dependencies { 
-    implementation enforcedPlatform('io.quarkus:quarkus-bom:$qVersion')
-    compile group: 'io.quarkus', name: 'quarkus-resteasy', version:'0.23.2'
-    compile group: 'io.quarkus', name: 'quarkus-vertx', version:'0.23.2'
+    compile group: 'io.quarkus', name: 'quarkus-resteasy', version:'${quarkus.version}'
+    compile group: 'io.quarkus', name: 'quarkus-vertx', version:'${quarkus.version}'
 
-    testCompile group: 'io.quarkus', name: 'quarkus-junit5', version:'$qVersion'
+    implementation enforcedPlatform('io.quarkus:quarkus-bom:${quarkus.version}')
+    implementation 'io.quarkus:quarkus-rest-client:${quarkus.version}'
+    implementation 'io.quarkus:quarkus-vertx:${quarkus.version}'
+
+    testCompile group: 'io.quarkus', name: 'quarkus-junit5', version:'${quarkus.version}'
     testCompile(group: 'io.rest-assured', name: 'rest-assured', version:'3.3.0') {
         exclude(module: 'activation')
         exclude(module: 'jaxb-osgi')
