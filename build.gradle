@@ -1,0 +1,50 @@
+buildscript {
+    ext {
+       qVersion = '0.23.2'
+    }
+    repositories {
+	mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath "io.quarkus:quarkus-gradle-plugin:$qVersion"
+    }
+}
+
+plugins {
+    id 'java'
+    //id 'io.quarkus'
+}
+
+//apply plugin: 'java'
+apply plugin: 'io.quarkus'
+//apply plugin: 'maven'
+
+group = 'org.acme'
+version = '1.0-SNAPSHOT'
+
+description = """"""
+
+dependencies { 
+    implementation enforcedPlatform('io.quarkus:quarkus-bom:$qVersion')
+    compile group: 'io.quarkus', name: 'quarkus-resteasy', version:'0.23.2'
+    compile group: 'io.quarkus', name: 'quarkus-vertx', version:'0.23.2'
+
+    testCompile group: 'io.quarkus', name: 'quarkus-junit5', version:'$qVersion'
+    testCompile(group: 'io.rest-assured', name: 'rest-assured', version:'3.3.0') {
+        exclude(module: 'activation')
+        exclude(module: 'jaxb-osgi')
+    }
+}
+
+repositories {
+    mavenCentral()        
+    //maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
