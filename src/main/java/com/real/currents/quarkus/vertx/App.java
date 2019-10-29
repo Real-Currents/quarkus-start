@@ -1,41 +1,5 @@
 package com.real.currents.quarkus.vertx;
 
-//import com.fizzed.rocker.ContentType;
-//import com.fizzed.rocker.RockerOutputFactory;
-//import io.reactiverse.pgclient.*;
-//import io.vertx.core.*;
-//import io.vertx.core.buffer.Buffer;
-//import io.vertx.core.http.HttpHeaders;
-//import io.vertx.core.http.HttpServer;
-//import io.vertx.core.http.HttpServerOptions;
-//import io.vertx.core.http.HttpServerRequest;
-//import io.vertx.core.http.HttpServerResponse;
-//import io.vertx.core.json.Json;
-//import io.vertx.core.json.JsonArray;
-//import io.vertx.core.json.JsonObject;
-//import io.vertx.core.logging.Logger;
-//import io.vertx.core.logging.LoggerFactory;
-//import io.vertx.core.net.SSLEngineOptions;
-//import Fortune;
-//import Message;
-//import World;
-//import BufferRockerOutput;
-//
-//import java.io.ByteArrayOutputStream;
-//import java.io.File;
-//import java.io.IOException;
-//import java.io.InputStream;
-//import java.nio.file.Files;
-//import java.time.ZonedDateTime;
-//import java.time.format.DateTimeFormatter;
-//import java.util.*;
-//import java.util.concurrent.ThreadLocalRandom;
-//import java.util.concurrent.atomic.AtomicInteger;
-//import java.util.regex.Matcher;
-//import java.util.regex.Pattern;
-//
-//import static io.vertx.kotlin.core.net.JdkSSLEngineOptionsKt.JdkSSLEngineOptions;
-
 import io.quarkus.runtime.StartupEvent;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Handler;
@@ -50,12 +14,19 @@ import io.vertx.reactivex.core.http.HttpServer;
 import io.vertx.reactivex.core.http.HttpServerRequest;
 import io.vertx.reactivex.core.http.HttpServerResponse;
 
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
+import javax.enterprise.event.Observes;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/start")
+@Produces(MediaType.TEXT_HTML)
 public class App extends AbstractVerticle implements Handler<HttpServerRequest> {
 
     @Inject
@@ -120,10 +91,9 @@ public class App extends AbstractVerticle implements Handler<HttpServerRequest> 
 
     }
 
-    //    @GET
-//    @Path("start")
-//    @Produces(MediaType.TEXT_PLAIN)
-    String startApp() {
+    @GET
+    //@Produces(MediaType.TEXT_HTML)
+    public String startApp() {
         return "<!DOCTYPE html>\n" +
             "<html>\n" +
             "  <head>\n" +
@@ -131,7 +101,7 @@ public class App extends AbstractVerticle implements Handler<HttpServerRequest> 
             "    <title>Start App</title>\n" +
             "  </head>\n" +
             "  <body>\n" +
-            "  <script type=\"text/javascript\" src=\"app.js\"></script></body>\n" +
+            "  <script type=\"text/javascript\" src=\"scripts/app.js\"></script></body>\n" +
             "</html>";
     }
 
