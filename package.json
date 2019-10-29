@@ -9,7 +9,27 @@
   },
   "author": "dancingfrog",
   "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.1.2",
+    "core-js": "^2.6.5",
+    "d3": "^5.9.1",
+    "d3-dsv": "^1.1.1",
+    "debug": "^3.2.6",
+    "es6-promise": "latest",
+    "gl-matrix": "^3.1.0",
+    "hoek": "^5.0.4",
+    "jasmine-core": "~2.6.2",
+    "jasmine-spec-reporter": "~4.1.0",
+    "protractor": "^5.4.2",
+    "rxjs": "^6.3.2",
+    "three": "latest",
+    "webgl-strict-types": "^1.0.1",
+    "webvr-polyfill": "latest",
+    "webvr-ui": "latest",
+    "zone.js": "^0.8.29"
+  },
   "devDependencies": {
+    "@types/d3-dsv": "*",
     "@types/node": "^12.11.2",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
@@ -21,6 +41,7 @@
     "svg-inline-loader": "^0.8.0",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
-    "webpack": "^4.41.2"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
   }
 }

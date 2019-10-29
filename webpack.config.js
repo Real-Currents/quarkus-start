@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: [ './main.ts' ]
+        app: [ './src/main/webapp/main.ts' ]
     },
     cache: false,
     devServer: {
@@ -52,8 +52,8 @@ module.exports = {
         ]
     },
     output: {
-        filename: './scripts/[name].js',
-        path: path.resolve(__dirname, '')
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'src/main/resources/META-INF/resources/scripts/')
     },
     plugins: [
 //        new BrowserSyncPlugin(
@@ -91,7 +91,7 @@ module.exports = {
 //                reload: false
 //            }
 //        ),
-        new ExtractTextPlugin('styles/mapscripts.css')
+//         new ExtractTextPlugin('styles/mapscripts.css')
     ],
     resolve: {
         extensions: [ '.css', '.scss', '.ts', '.js' ]

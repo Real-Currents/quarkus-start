@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "./modules/",
+        "baseUrl": "./",
         "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -20,10 +20,10 @@
         ]
     },
     "files": [
-        "main.ts"
+        "./src/main/webapp/main.ts"
     ],
     "exclude": [
-        "test.ts",
+        "./src/main/webapp/test.ts",
         "**/*spec.ts"
     ]
 }
