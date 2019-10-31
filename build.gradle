@@ -26,6 +26,15 @@ version = '1.0-SNAPSHOT'
 description = "quarkus-start"
 
 dependencies {
+    implementation enforcedPlatform("io.quarkus:quarkus-bom:${qVersion}")
+
+    compile group: 'io.quarkus', name: 'quarkus-jackson', version:"${qVersion}"
+    compile group: 'io.quarkus', name: 'quarkus-jsonp', version:"${qVersion}"
+    compile group: 'io.quarkus', name: 'quarkus-resteasy', version:"${qVersion}"
+    compile group: 'io.quarkus', name: 'quarkus-vertx', version:"${qVersion}"
+
+    implementation 'io.quarkus:quarkus-resteasy-jsonb'
+
     compile group: 'com.fizzed', name: 'rocker-runtime', version: '1.2.1'
     compile group: 'javax.xml.bind', name: 'jaxb-api', version:'2.2.12'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.13'
@@ -36,13 +45,6 @@ dependencies {
     compile group: 'io.vertx', name: 'vertx-core', version:'3.6.2'
     compile group: 'io.vertx', name: 'vertx-lang-kotlin', version:'3.6.2'
     
-    compile group: 'io.quarkus', name: 'quarkus-jackson', version:"${qVersion}"
-    compile group: 'io.quarkus', name: 'quarkus-jsonp', version:"${qVersion}"
-    compile group: 'io.quarkus', name: 'quarkus-resteasy', version:"${qVersion}"
-    compile group: 'io.quarkus', name: 'quarkus-vertx', version:"${qVersion}"
-
-    implementation enforcedPlatform("io.quarkus:quarkus-bom:${qVersion}")
-
     testCompile group: 'io.quarkus', name: 'quarkus-junit5', version:"${qVersion}"
     testCompile(group: 'io.rest-assured', name: 'rest-assured', version:'3.3.0') {
         exclude(module: 'activation')
